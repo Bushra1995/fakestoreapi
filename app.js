@@ -30,16 +30,23 @@ function renderProducts() {
 
 
 // Fetch data from API and create product objects
-fetch('https://example.com/products')
-    .then(response => response.json())
+fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
     .then(data => {
         // Create a new product object for each item in the data
         data.forEach(item => {
             const product = new Product(item.title, item.price, item.description, item.image);
+
             // Push the new product object to the products array
             products.push(product);
+            console.log(products);
         });
         // Render the products in the main section
         renderProducts();
     })
     .catch(error => console.error(error));
+
+// // Fetch data from API and create product objects
+//     fetch('https://fakestoreapi.com/products')
+//             .then(res=>res.json())
+//             .then(json=>console.log(json))
